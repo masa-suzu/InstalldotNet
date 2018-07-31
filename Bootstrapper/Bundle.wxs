@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Bundle Name="Bootstrapper" Version="1.0.0.0" Manufacturer="masa-suzu@github.com" UpgradeCode="b8dbe519-5748-4e6e-a73d-9404b7fccbec">
+    <BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost">
+      <Payload SourceFile="../UI/BootstrapperCore.config" />
+      <Payload SourceFile="../UI/bin/debug/UI.dll" />
+      <Payload SourceFile="C:/Program Files (x86)/WiX Toolset v3.11/SDK/Microsoft.Deployment.WindowsInstaller.dll" />
+    </BootstrapperApplicationRef>
+    <WixVariable Id="WixMbaPrereqPackageId" Value="Netfx4Full" />
+    <WixVariable Id="WixMbaPrereqLicenseUrl" Value="NetfxLicense.rtf" />
+
+    <Chain>
+      <MsiPackage Id="Setup" SourceFile="../Setup/bin/debug/setup.msi" Cache="yes" Vital="no" />
+    </Chain>
+  </Bundle>
+  <Fragment>
+  </Fragment>
+</Wix>
